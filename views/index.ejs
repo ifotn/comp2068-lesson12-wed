@@ -40,7 +40,9 @@
                 <label for="losses" class="control-label col-sm-3">Losses:</label>
                 <input name="losses" id="losses" ng-model="losses" type="number" />
             </fieldset>
-            <button class="btn btn-success col-sm-offset-3">Add</button>
+            <button class="btn btn-success col-sm-offset-3" ng-click="addTeam()" ng-hide="_id">Add</button>
+            <button class="btn btn-success col-sm-offset-3" ng-click="updateTeam()" ng-show="_id">Update</button>
+            <input name="_id" id="_id" ng-model="_id" type="hidden" />
         </form>
     </section>
 
@@ -60,8 +62,8 @@
                 <td>{{ t.nickname }}</td>
                 <td>{{ t.wins }}</td>
                 <td>{{ t.losses }}</td>
-                <td><button class="btn btn-primary">Edit</button></td>
-                <td><button class="btn btn-danger">Delete</button></td>
+                <td><button class="btn btn-primary" ng-click="selectTeam($index)">Edit</button></td>
+                <td><button class="btn btn-danger" ng-click="deleteTeam(t._id, $index)">Delete</button></td>
             </tr>
         </table>
     </section>
