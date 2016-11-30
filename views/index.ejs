@@ -17,7 +17,7 @@
     </ul>
 </nav>
 
-<main class="container">
+<main class="container" ng-app="TeamApp" ng-controller="TeamController" ng-init="getTeams()">
 
     <h1>Team Manager</h1>
 
@@ -55,11 +55,11 @@
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+            <tr ng-repeat="t in teams track by $index">
+                <td>{{ t.city }}</td>
+                <td>{{ t.nickname }}</td>
+                <td>{{ t.wins }}</td>
+                <td>{{ t.losses }}</td>
                 <td><button class="btn btn-primary">Edit</button></td>
                 <td><button class="btn btn-danger">Delete</button></td>
             </tr>
@@ -70,6 +70,7 @@
 
 <!--js-->
 <script src="/javascripts/angular.min.js"></script>
+<script src="/javascripts/angular-ui-router.js"></script>
 <script src="/javascripts/jquery-3.1.1.min.js"></script>
 <script src="/javascripts/bootstrap.min.js"></script>
 <script src="/javascripts/scripts.js"></script>
